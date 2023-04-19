@@ -3,9 +3,9 @@ package com.pil.tp_04.mvvm.viewmodel // ktlint-disable package-name
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.pil.tp_04.mvvm.contract.MainContract
+import com.pil.tp_04.mvvm.contract.CounterContract
 
-class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainContract.ViewModel {
+class CounterViewModel(private val model: CounterContract.Model) : ViewModel(), CounterContract.ViewModel {
 
     private val mutableLiveData: MutableLiveData<MainData> = MutableLiveData()
     val data: LiveData<MainData> = mutableLiveData

@@ -1,8 +1,8 @@
 package com.pil.tp_04.mvvm.model // ktlint-disable package-name
 
-import com.pil.tp_04.mvvm.contract.MainContract
+import com.pil.tp_04.mvvm.contract.CounterContract
 
-class MainModel : MainContract.Model {
+class CounterModel : CounterContract.Model {
     override var counter: Int = ZERO_INT
 
     override fun increment(inputValue: Int) {

@@ -5,21 +5,21 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.pil.tp_04.R
 import com.pil.tp_04.databinding.ActivityMainBinding
-import com.pil.tp_04.mvvm.model.MainModel
-import com.pil.tp_04.mvvm.viewmodel.MainViewModel
-import com.pil.tp_04.mvvm.viewmodel.MainViewModel.MainData
-import com.pil.tp_04.mvvm.viewmodel.MainViewModel.MainState
+import com.pil.tp_04.mvvm.model.CounterModel
+import com.pil.tp_04.mvvm.viewmodel.CounterViewModel
+import com.pil.tp_04.mvvm.viewmodel.CounterViewModel.MainData
+import com.pil.tp_04.mvvm.viewmodel.CounterViewModel.MainState
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val mainViewModel: MainViewModel = MainViewModel(MainModel())
+    private val counterViewModel: CounterViewModel = CounterViewModel(CounterModel())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         buttonListener()
-        mainViewModel.initUI()
-        mainViewModel.data.observe({ lifecycle }, ::updateUI)
+        counterViewModel.initUI()
+        counterViewModel.data.observe({ lifecycle }, ::updateUI)
     }
 
     private fun updateUI(it: MainData) {
@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun buttonListener() {
-        binding.incrementBtn.setOnClickListener { mainViewModel.incrementValue(getInput()) }
-        binding.decrementBtn.setOnClickListener { mainViewModel.decrementValue(getInput()) }
-        binding.resetBtn.setOnClickListener { mainViewModel.resetValue() }
+        binding.incrementBtn.setOnClickListener { counterViewModel.incrementValue(getInput()) }
+        binding.decrementBtn.setOnClickListener { counterViewModel.decrementValue(getInput()) }
+        binding.resetBtn.setOnClickListener { counterViewModel.resetValue() }
     }
 
     private fun showToast(text: String) {

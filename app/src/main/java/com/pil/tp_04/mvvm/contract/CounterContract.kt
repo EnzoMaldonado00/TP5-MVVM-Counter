@@ -1,9 +1,9 @@
 package com.pil.tp_04.mvvm.contract // ktlint-disable package-name
 
 import androidx.lifecycle.LiveData
-import com.pil.tp_04.mvvm.viewmodel.MainViewModel
+import com.pil.tp_04.mvvm.viewmodel.CounterViewModel
 
-interface MainContract {
+interface CounterContract {
     interface Model {
         var counter: Int
         fun increment(inputValue: Int)
@@ -11,7 +11,7 @@ interface MainContract {
         fun reset()
     }
     interface ViewModel {
-        fun getValue(): LiveData<MainViewModel.MainData>
+        fun getValue(): LiveData<CounterViewModel.MainData>
         fun incrementValue(inputValue: Int)
         fun decrementValue(inputValue: Int)
         fun resetValue()
