@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getInput(): Int {
-        val input = 0
+        val input = ZERO_INT
         if (binding.inputCount.text.toString().isEmpty()) {
             showToast(getString(R.string.empty_input))
         } else {
@@ -60,5 +60,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun clearEditText() {
         binding.inputCount.text.clear()
+    }
+
+    companion object {
+        const val ZERO_INT = 0
     }
 }
