@@ -26,7 +26,7 @@ class CounterViewModelTest {
     fun `on btn inc pressed on initial state test`() {
         viewModel.incrementValue(SEVENTEEN_INT)
         assertEquals(SEVENTEEN_INT, viewModel.getValue().value?.value)
-        assertEquals(CounterViewModel.MainState.INC, viewModel.getValue().value?.state)
+        assertEquals(CounterViewModel.CounterState.INC, viewModel.getValue().value?.state)
     }
 
     @Test
@@ -34,14 +34,14 @@ class CounterViewModelTest {
         viewModel.decrementValue(SEVENTEEN_INT)
         viewModel.incrementValue(THREE_INT)
         assertEquals(MINUS_FOURTEEN_INT, viewModel.getValue().value?.value)
-        assertEquals(CounterViewModel.MainState.INC, viewModel.getValue().value?.state)
+        assertEquals(CounterViewModel.CounterState.INC, viewModel.getValue().value?.state)
     }
 
     @Test
     fun `on btn dec pressed on initial state test`() {
         viewModel.decrementValue(THREE_INT)
         assertEquals(MINUS_THREE_INT, viewModel.getValue().value?.value)
-        assertEquals(CounterViewModel.MainState.DEC, viewModel.getValue().value?.state)
+        assertEquals(CounterViewModel.CounterState.DEC, viewModel.getValue().value?.state)
     }
 
     @Test
@@ -49,14 +49,14 @@ class CounterViewModelTest {
         viewModel.incrementValue(THREE_INT)
         viewModel.decrementValue(THREE_INT)
         assertEquals(ZERO_INT, viewModel.getValue().value?.value)
-        assertEquals(CounterViewModel.MainState.DEC, viewModel.getValue().value?.state)
+        assertEquals(CounterViewModel.CounterState.DEC, viewModel.getValue().value?.state)
     }
 
     @Test
     fun `on btn reset pressed test`() {
         viewModel.resetValue()
         assertEquals(ZERO_INT, viewModel.getValue().value?.value)
-        assertEquals(CounterViewModel.MainState.INITIAL, viewModel.getValue().value?.state)
+        assertEquals(CounterViewModel.CounterState.INITIAL, viewModel.getValue().value?.state)
     }
 
     companion object {
