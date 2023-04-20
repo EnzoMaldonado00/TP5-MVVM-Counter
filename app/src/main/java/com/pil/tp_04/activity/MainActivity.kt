@@ -7,8 +7,8 @@ import com.pil.tp_04.R
 import com.pil.tp_04.databinding.ActivityMainBinding
 import com.pil.tp_04.mvvm.model.CounterModel
 import com.pil.tp_04.mvvm.viewmodel.CounterViewModel
-import com.pil.tp_04.mvvm.viewmodel.CounterViewModel.MainData
-import com.pil.tp_04.mvvm.viewmodel.CounterViewModel.MainState
+import com.pil.tp_04.mvvm.viewmodel.CounterViewModel.CounterData
+import com.pil.tp_04.mvvm.viewmodel.CounterViewModel.CounterState
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -22,17 +22,17 @@ class MainActivity : AppCompatActivity() {
         counterViewModel.data.observe({ lifecycle }, ::updateUI)
     }
 
-    private fun updateUI(it: MainData) {
+    private fun updateUI(it: CounterData) {
         when (it.state) {
-            MainState.INITIAL -> {
+            CounterState.INITIAL -> {
                 binding.counter.text = it.value.toString()
                 clearEditText()
                 showToast(getString(R.string.reset_button_text))
             }
-            MainState.INC -> {
+            CounterState.INC -> {
                 binding.counter.text = it.value.toString()
             }
-            MainState.DEC -> {
+            CounterState.DEC -> {
                 binding.counter.text = it.value.toString()
             }
         }

@@ -7,40 +7,40 @@ import com.pil.tp_04.mvvm.contract.CounterContract
 
 class CounterViewModel(private val model: CounterContract.Model) : ViewModel(), CounterContract.ViewModel {
 
-    private val mutableLiveData: MutableLiveData<MainData> = MutableLiveData()
-    val data: LiveData<MainData> = mutableLiveData
+    private val mutableLiveData: MutableLiveData<CounterData> = MutableLiveData()
+    val data: LiveData<CounterData> = mutableLiveData
 
     fun initUI() {
-        mutableLiveData.postValue(MainData(MainState.INITIAL))
+        mutableLiveData.postValue(CounterData(CounterState.INITIAL))
     }
 
-    override fun getValue(): LiveData<MainData> {
+    override fun getValue(): LiveData<CounterData> {
         return mutableLiveData
     }
 
     override fun incrementValue(inputValue: Int) {
         model.increment(inputValue)
-        mutableLiveData.value = MainData(MainState.INC, model.counter)
+        mutableLiveData.value = CounterData(CounterState.INC, model.counter)
     }
 
     override fun decrementValue(inputValue: Int) {
         model.decrement(inputValue)
-        mutableLiveData.value = MainData(MainState.DEC, model.counter)
+        mutableLiveData.value = CounterData(CounterState.DEC, model.counter)
     }
 
     override fun resetValue() {
         model.reset()
-        mutableLiveData.value = MainData(MainState.INITIAL, model.counter)
+        mutableLiveData.value = CounterData(CounterState.INITIAL, model.counter)
     }
 
-    enum class MainState {
+    enum class CounterState {
         INITIAL,
         INC,
         DEC,
     }
 
-    data class MainData(
-        val state: MainState = MainState.INITIAL,
+    data class CounterData(
+        val state: CounterState = CounterState.INITIAL,
         val value: Int = ZERO_INT,
     )
 

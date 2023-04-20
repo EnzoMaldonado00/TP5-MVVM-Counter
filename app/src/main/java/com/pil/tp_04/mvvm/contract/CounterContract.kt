@@ -11,7 +11,7 @@ interface CounterContract {
         fun reset()
     }
     interface ViewModel {
-        fun getValue(): LiveData<CounterViewModel.MainData>
+        fun getValue(): LiveData<CounterViewModel.CounterData>
         fun incrementValue(inputValue: Int)
         fun decrementValue(inputValue: Int)
         fun resetValue()
